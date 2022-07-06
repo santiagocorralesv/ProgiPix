@@ -1,0 +1,63 @@
+<!-- inheritance base html -->
+{% extends 'layout/base.html' %}
+
+<!-- START MAIN SECTION -->
+{% block main %}
+<!-- START CONTENT MAIN-->
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">This is Current configuration</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">This is the current configuration for bidding calculations</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <a href="{% url 'bidding:calculate-tender' %}" class="btn btn-primary btn-lg px-4 me-sm-3 shadow-lg">¡I want to calculate my tender!</a>
+            <a href="#" class="btn btn-outline-secondary btn-lg px-4 shadow-lg">Editar</a>
+        </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh">
+        <div class="container px-5"></div>
+    </div>
+</div>
+
+<div class="container px-4 py-5 text-center" id="hanging-icons">
+    <div class="row g-4">
+        <div class="col-6 col-md-3 align-items-start">
+            <div class="icon-square bg-light text-dark d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-currency-exchange"></i>
+            </div>
+            <div>
+                <h2>Basic use</h2>
+                    <h4><span class="badge" style="background-color: #711d8e; font-size:20px;">{{basicuse}}</span></h4>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 align-items-start">
+            <div class="icon-square bg-light text-dark d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-percent"></i>
+            </div>
+            <div>
+                <h2>Seller commission</h2>
+                <h4><span class="badge" style="background-color: #711d8e; font-size:20px;">{{sellercommission}}</span></h4>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 align-items-start">
+            <div class="icon-square bg-light text-dark d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-rulers"></i>
+            </div>
+            <div>
+                <h2>Cost Range</h2>
+                <h4><span class="badge" style="background-color: #711d8e; font-size:20px;">{{costrange}}</span></h4>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 align-items-start">
+            <div class="icon-square bg-light text-dark d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <i class="bi bi-house-fill"></i>
+            </div>
+            <div>
+                <h2>Fixed Rate</h2>
+                <h4><span class="badge" style="background-color: #711d8e; font-size:20px;">{{fixedrate}}</span></h4>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END CONTENT MAIN-->
+{% endblock main %}
+<!-- END MAIN SECTION -->

@@ -1,0 +1,61 @@
+<!-- inheritance base html -->
+{% extends 'layout/base.html' %} {% load static %}
+<!-- START MAIN SECTION -->
+{% block main %}
+<div class="modal modal-signin position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <!-- <h5 class="modal-title">Modal title</h5> -->
+                <h2 class="fw-bold mb-0">Get your bid</h2>
+            </div>
+            <div class="modal-body p-5 pt-0">
+                <form method="post">
+                    <div class="form-floating mb-3">
+                        {{form.amount}}
+                        <label>{{form.amount.label}}</label>
+                        <small class="text-muted">{{form.amount.help_text}}</small>
+                    </div>
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">¡Calculate!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container px-4 py-5 text-center" id="icon-grid">
+    <h2 class="pb-2 border-bottom">Below are the rates in detail of your bidding calculation</h2>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5 text-center">
+        <div class="col d-flex align-items-start">
+            <i class="bi bi-currency-exchange" style="font-size: 25px;"></i> 
+            <div>
+                <h4 class="fw-bold mb-0">Basic use</h4>
+                <p>{{basicusagerate}}</p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <i class="bi bi-percent" style="font-size: 25px;"></i>
+            <div>
+                <h4 class="fw-bold mb-0">Seller commission</h4>
+                <p>{{sellercommission}}</p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <i class="bi bi-rulers" style="font-size: 25px;"></i>
+            <div>
+                <h4 class="fw-bold mb-0">Cost Range</h4>
+                <p>{{partnershipcostrange}}</p>
+            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+            <i class="bi bi-house-fill" style="font-size: 25px;"></i>
+            <div>
+                <h4 class="fw-bold mb-0">Fixed Rate</h4>
+                <p>{{fixedstoragerate}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}
+<!-- END MAIN SECTION -->
