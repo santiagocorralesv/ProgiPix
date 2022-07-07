@@ -1,0 +1,19 @@
+<div class="modal-dialog modal-lg"  role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Basic usage rate</h4>
+            <button type="button" class="close"  data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form action="{% url 'administrator:basic-usage-rate-update' object %}" method="post" id="formajax">
+            <div class="modal-body">
+                <div class="form-row pl-2">{{form.as_p}}</div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" type="button" onclick="close_modal();">Cancelar</button>
+                <button class="btn btn-primary" type="submit">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</div>

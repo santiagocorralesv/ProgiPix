@@ -16,21 +16,6 @@
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     </head>
     <body>
-        <div class="container-fluid shadow">
-            <div class="container">
-                <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
-                    <a href="{% url 'bidding:home-bidding' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                        <img src="{% static 'images/progipix-auto-auction.png' %}" alt="progi home" height="30px" />
-                    </a>
-                    <ul class="nav nav-pills">
-                        <li class="nav-item"><a href="{% url 'bidding:home-bidding' %}" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="{% url 'administrator:administrator-home' %}" class="nav-link">Administrator</a></li>
-                        <li class="nav-item"><a href="{% url 'bidding:calculate-tender' %}" class="nav-link">Bidding</a></li>
-                        <li class="nav-item"><a href="{% url 'bidding:docs' %}" class="nav-link">Docs</a></li>
-                    </ul>
-                </header>
-            </div>
-        </div>
         <!-- START BLOCK MAIN -->
         {% block main %} {% endblock main %}
         <!-- END BLOCK MAIN -->

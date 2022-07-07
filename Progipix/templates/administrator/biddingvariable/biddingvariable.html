@@ -1,0 +1,85 @@
+<!-- inheritance base html -->
+{% extends 'layout/base.html' %} {% load static %}
+<!-- START MAIN SECTION -->
+{% block main %}
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <h1>Bidding variable current</h1>
+        <form method="post">
+            {{form.as_p}}
+            <button class="btn btn-primary" type="submit">Guardar</button>
+            <a class="btn btn-secondary" href="{% url 'administrator:administrator-home' %}">Cancel</a>
+        </form>
+    </div>
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-secondary rounded-3">
+                <h2>Basic use rate</h2>
+                <table class="table  text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Percent</th>
+                            <th scope="col">Minimum</th>
+                            <th scope="col">Maximum</th>
+                            <th scope="col">More info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for bur in basicusagerate %}
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{bur.percent}}</td>
+                            <td>{{bur.minimum}}</td>
+                            <td>{{bur.maximum}}</td>
+                            <td>
+                                <button onclick="open_modal('{% url 'administrator:basic-usage-rate-update' bur.pk %}');" type="button" class="btn btn-sm btn-primary">Edit</button>
+                                <button onclick="open_modal('{% url 'administrator:basic-usage-rate-delete' bur.pk %}');" type="button" class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button onclick="open_modal('{% url 'administrator:basic-usage-rate-create' %}');" class="btn btn-outline-light" type="button">Create new</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Partner ship cost range</h2>
+                <table class="table  text-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Cost</th>
+                            <th scope="col">Minimum</th>
+                            <th scope="col">Maximum</th>
+                            <th scope="col">More info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for pscr in partnershipcostrange %}
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{pscr.cost}}</td>
+                            <td>{{pscr.minimum}}</td>
+                            <td>{{pscr.maximum}}</td>
+                            <td>
+                                <button onclick="open_modal('{% url 'administrator:partner-ship-cost-range-update' pscr.pk %}');" type="button" class="btn btn-sm btn-primary">Edit</button>
+                                <button onclick="open_modal('{% url 'administrator:partner-ship-cost-range-delete' pscr.pk %}');" type="button" class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button onclick="open_modal('{% url 'administrator:partner-ship-cost-range-create' %}');" type="button" class="btn btn-outline-secondary">Create new</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modall" data-bs-backdrop="static" role="dialog">
+        
+</div>
+
+{% endblock main %}
+<!-- END MAIN SECTION -->

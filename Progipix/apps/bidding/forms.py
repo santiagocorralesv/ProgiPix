@@ -3,6 +3,7 @@ from django import forms
 # IMPORT APPS PROJECT
 from apps.administrator.models import BiddingCalculation
 
+# form to create or update model records BiddingCalculation
 class TenderCalculationForm(forms.ModelForm):
     class Meta:
         model = BiddingCalculation

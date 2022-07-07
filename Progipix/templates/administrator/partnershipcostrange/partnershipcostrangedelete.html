@@ -1,0 +1,38 @@
+<div class="modal-dialog modal-lg"  role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Partnership cost range</h4>
+            <button type="button" class="close"  data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form action="{% url 'administrator:partner-ship-cost-range-delete' object.pk %}" method="post" id="formajax">
+            <div class="modal-body">
+                <h4>¿Are you sure you want to delete?</h4>
+                <table class="table  text-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Pk</th>
+                            <th scope="col">Percent</th>
+                            <th scope="col">Minimum</th>
+                            <th scope="col">Maximum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{object.pk}}</th>
+                            <td>{{object.percent}}</td>
+                            <td>{{object.minimum}}</td>
+                            <td>{{object.maximum}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" type="button" onclick="close_modal();">Cancelar</button>
+                <button class="btn btn-primary" type="submit">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
